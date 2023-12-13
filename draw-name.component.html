@@ -1,0 +1,29 @@
+<!-- draw-name.component.html -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 mt-5">
+        <h2 class="text-center">Secret Santa Draw</h2>
+  
+        <form>
+            <div class="form-group">
+              <label for="participant">Participant Name:</label>
+              <input type="text" id="participant" name="participant" class="form-control" [(ngModel)]="newParticipant" required>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="addParticipant()">Add Participant</button>
+          </form>
+  
+        <ul class="list-group mt-3">
+          <li *ngFor="let participant of participants" class="list-group-item">{{ participant }}</li>
+        </ul>
+  
+        <button type="button" class="btn btn-success mt-3" (click)="drawNames()">Draw Names</button>
+  
+        <div *ngFor="let entry of results | keyvalue" class="mt-3">
+          <div class="alert alert-info" role="alert">
+            {{ entry.key }} is the Secret Santa for {{ entry.value }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
